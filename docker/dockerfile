@@ -1,0 +1,8 @@
+FROM microsoft/powershell:nanoserver
+SHELL ["pwsh", "-Command"]
+Run New-Item -Type Directory C:\temp
+COPY Install-Polaris.ps1 c:/temp/
+COPY Invoke-Polaris.ps1 c:/temp/
+RUN C:\temp\Install-Polaris.ps1
+Expose 8080
+cmd C:\temp\Invoke-Polaris.ps1
