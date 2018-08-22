@@ -1,4 +1,6 @@
 FROM microsoft/powershell:nanoserver
+USER ContainerAdministrator
+RUN setx /M PATH "%PATH%;C:\Program Files\PowerShell"
 SHELL ["pwsh", "-Command"]
 Run New-Item -Type Directory C:\temp
 COPY Install-Polaris.ps1 c:/temp/
